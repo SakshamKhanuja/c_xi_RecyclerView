@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_text_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@android:color/black"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/padding_default"
+        android:textSize="@dimen/item_text_size"
+        tools:text="19" />
+
+    <TextView
+        android:id="@+id/item_text_holder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical"
+        android:fontFamily="monospace"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:textSize="@dimen/item_holder_text_size"
+        android:textStyle="bold"
+        tools:text="ViewHolder  index: 0" />
+
+</FrameLayout>

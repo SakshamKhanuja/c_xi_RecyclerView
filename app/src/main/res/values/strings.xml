@@ -1,0 +1,5 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Recycler View</string>
+    <string name="toast_index">List Item: <xliff:g id="index">%d</xliff:g></string>
+    <string name="holder_index">ViewHolder instance: <xliff:g id="holder_index">%d</xliff:g></string>
+</resources>
