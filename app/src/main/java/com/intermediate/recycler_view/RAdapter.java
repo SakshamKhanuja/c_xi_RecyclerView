@@ -20,6 +20,9 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.NumberViewHolder> {
     // Allows us to use an External click handler for our RecyclerView items.
     private final ListItemClickListener mListItemClickListener;
 
+    // Represents the view type for item Views' position that are divisible by 5.
+    private static final int VIEW_TYPE_FIVE = 5;
+
     // Contains a single method having the clicked item view's position in the adapter's data set.
     public interface ListItemClickListener {
 
@@ -53,7 +56,16 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.NumberViewHolder> {
         LayoutInflater layoutInflater = (LayoutInflater) parent.getContext()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View view = layoutInflater.inflate(R.layout.number_list_item, parent, false);
+        // Represents the ID of the layout that is needed to be inflated.
+        int layout_ID;
+
+        if (viewType == VIEW_TYPE_FIVE) {
+            layout_ID = R.layout.list_five_item;
+        } else {
+            layout_ID = R.layout.number_list_item;
+        }
+
+        View view = layoutInflater.inflate(layout_ID, parent, false);
 
         // Set this ViewHolder's instance.
         TextView textHolder = view.findViewById(R.id.item_text_holder);
@@ -74,6 +86,22 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.NumberViewHolder> {
          * The position of item within the adapter's dataset is passed.
          */
         holder.bindData(position);
+    }
+
+
+    @Override
+    public int getItemViewType(int position) {
+        /*
+         * This sets the "view Type" based on item views' position.
+         *
+         * The "view Type" is then returned to "onCreateViewHolder" method to inflate views based
+         * on it.
+         */
+        if (position % 5 == 0) {
+            return VIEW_TYPE_FIVE;
+        }
+        // Returns 0.
+        return super.getItemViewType(position);
     }
 
     @Override
